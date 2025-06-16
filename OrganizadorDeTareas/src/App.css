@@ -1,0 +1,366 @@
+:root {
+  --primary-color: #3498db;
+  --danger-color: #e74c3c;
+  --success-color: #2ecc71;
+  --text-color: #2c3e50;
+  --border-color: #dfe6e9;
+  --card-bg: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8f9fa;
+  color: var(--text-color);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* Contenedor principal */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.app-header h1 {
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin: 0;
+}
+.app-header p {
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 1rem;
+  margin: 0.5rem 0 0 0;
+}
+
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Nuevo layout grid */
+.main-grid {
+  width: 100%;
+  max-width: 1000px; /* Ajusta este valor según prefieras */
+}
+
+/* Sección de búsqueda */
+.search-section {
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-filters {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.search-input {
+  flex: 2;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.filter-select {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* Sección de estadísticas */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.stat-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-top: 3px solid var(--primary-color);
+}
+
+.stat-card .stat-label {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 0.3rem;
+}
+
+.stat-card .stat-value {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Variantes de color para prioridades */
+.stat-card.alta {
+  border-top-color: #e74c3c;
+}
+
+.stat-card.alta .stat-value {
+  color: #e74c3c;
+}
+
+.stat-card.media {
+  border-top-color: #f39c12;
+}
+
+.stat-card.media .stat-value {
+  color: #f39c12;
+}
+
+.stat-card.baja {
+  border-top-color: #2ecc71;
+}
+
+.stat-card.baja .stat-value {
+  color: #2ecc71;
+}
+
+/* Formulario */
+.form-section {
+  width: 100%;
+  max-width: 800px;
+}
+
+.tasks-section {
+  width: 100%;
+  max-width: 1200px;
+}
+
+
+
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.tasks-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.tasks-count {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* .tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  width: 100%;
+} */
+ .tasks-grid {
+  width: 100%;
+  overflow: visible;
+  margin-top: 1rem;
+}
+
+.horizontal-tasks-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.task-card {
+  min-width: 250px;
+  max-width: 300px;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 4px solid;
+  padding: 1rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Colores de prioridad */
+.task-card[data-prioridad="Alta"] {
+  border-left-color: #e74c3c;
+}
+
+.task-card[data-prioridad="Media"] {
+  border-left-color: #f39c12;
+}
+
+.task-card[data-prioridad="Baja"] {
+  border-left-color: #2ecc71;
+}
+
+.task-content {
+  margin-bottom: 1rem;
+}
+
+.task-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.task-description {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.task-priority {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Acciones */
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* Estilos para los componentes hijos */
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+
+form input, form select {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+form button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.task-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-left: 4px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.complete-btn, .delete-btn {
+  background: none;
+  border: 1px solid;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.complete-btn {
+  color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.complete-btn:hover {
+  background: var(--success-color);
+  color: white;
+}
+
+.delete-btn {
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.delete-btn:hover {
+  background: var(--danger-color);
+  color: white;
+}
+
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.form-input, .form-select {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.form-button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background: #2980b9;
+}
